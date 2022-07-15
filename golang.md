@@ -14,6 +14,11 @@
 
 * [https://github.com/pingcap/tidb](https://github.com/pingcap/tidb) TiDB is an open-source, cloud-native, distributed, MySQL-Compatible database for elastic scale and real-time analytics
 
+# DI 
+
+* [https://github.com/google/wire](https://github.com/google/wire) Compile-time Dependency Injection for Go
+* [https://github.com/alibaba/IOC-golang](https://github.com/alibaba/IOC-golang) A Golang depenedency injection framework, helps developers to build any go application.
+
 ## Goroutine pool
 
 * [https://github.com/gammazero/workerpool](https://github.com/gammazero/workerpool) Concurrency limiting goroutine pool
