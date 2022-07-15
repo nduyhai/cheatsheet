@@ -1,5 +1,11 @@
 # Golang cheet sheet
 
+## API docs
+
+* [https://github.com/swaggo/swag](https://github.com/swaggo/swag) Automatically generate RESTful API documentation with Swagger 2.0 for Go.
+* [https://github.com/deepmap/oapi-codegen](https://github.com/deepmap/oapi-codegen)  Generate Go client and server boilerplate from OpenAPI 3 specifications
+
+
 ## Configuration 
 
 * [https://github.com/kelseyhightower/envconfig](https://github.com/kelseyhightower/envconfig) Golang library for managing configuration data from environment variables
@@ -30,8 +36,4 @@
 
 * [https://github.com/golangci/golangci-lint](https://github.com/golangci/golangci-lint) Fast linters Runner for Go
 
-## API docs
-
-* [https://github.com/swaggo/swag](https://github.com/swaggo/swag) Automatically generate RESTful API documentation with Swagger 2.0 for Go.
-* [https://github.com/deepmap/oapi-codegen](https://github.com/deepmap/oapi-codegen)  Generate Go client and server boilerplate from OpenAPI 3 specifications
 

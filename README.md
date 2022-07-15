@@ -1,4 +1,4 @@
 # cheatsheet
 
-* [java.md](java)
-* [golang.md](go)
+* [java](java.md)
+* [go](golang.md)
