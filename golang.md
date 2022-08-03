@@ -48,3 +48,6 @@
 * [https://github.com/golangci/golangci-lint](https://github.com/golangci/golangci-lint) Fast linters Runner for Go
 
 
+## Messaging
+
+* [https://github.com/nsqio/nsq](https://github.com/nsqio/nsq) A realtime distributed messaging platform
