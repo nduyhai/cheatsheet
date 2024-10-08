@@ -1,0 +1,12 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: cheatsheet
+  datasource:
+    url: jdbc://localhost:5432/cheatsheet
+    username: myuser
+    password: secret
+  jpa:
+    hibernate:
+      ddl-auto: create
