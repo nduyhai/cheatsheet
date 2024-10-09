@@ -35,7 +35,6 @@ public class CheatSheetEntity implements Serializable {
     entity.setTitle(cheatSheet.getTitle());
     entity.setDescription(cheatSheet.getDescription());
     entity.setUrl(cheatSheet.getUrl());
-
     entity.setCategory(CategoryEntity.of(cheatSheet.getCategory().name()));
     entity.setLanguage(LanguageEntity.of(cheatSheet.getLanguage().name()));
     return entity;
