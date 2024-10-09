@@ -8,13 +8,17 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import java.io.Serial;
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
 @Entity(name = "cheat_sheet")
 @Getter
 @Setter
-public class CheatSheetEntity {
+public class CheatSheetEntity implements Serializable {
+  @Serial private static final long serialVersionUID = 1L;
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -22,8 +26,8 @@ public class CheatSheetEntity {
   private String title;
   private String description;
   private String url;
-  private String category;
-  private String language;
+  private CategoryEntity category;
+  private LanguageEntity language;
 
   public static CheatSheetEntity from(CheatSheet cheatSheet) {
     final CheatSheetEntity entity = new CheatSheetEntity();
@@ -31,8 +35,9 @@ public class CheatSheetEntity {
     entity.setTitle(cheatSheet.getTitle());
     entity.setDescription(cheatSheet.getDescription());
     entity.setUrl(cheatSheet.getUrl());
-    entity.setCategory(cheatSheet.getCategory().name());
-    entity.setLanguage(cheatSheet.getLanguage().name());
+
+    entity.setCategory(CategoryEntity.of(cheatSheet.getCategory().name()));
+    entity.setLanguage(LanguageEntity.of(cheatSheet.getLanguage().name()));
     return entity;
   }
 
@@ -42,8 +47,8 @@ public class CheatSheetEntity {
         .title(title)
         .description(description)
         .url(url)
-        .category(new Category(category))
-        .language(new Language(language))
+        .category(new Category(category.getCategory()))
+        .language(new Language(language.getLanguage()))
         .build();
   }
 }
