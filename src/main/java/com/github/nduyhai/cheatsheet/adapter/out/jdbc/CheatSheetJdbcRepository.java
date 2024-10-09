@@ -5,7 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CheatSheetJdbcRepository extends JpaRepository<CheatSheetEntity, Long> {
 
-  List<CheatSheetEntity> findAllByLanguage(String language);
-
-  List<CheatSheetEntity> findAllByCategory(String category);
+  List<CheatSheetEntity> findByLanguage_Language(String language);
 }

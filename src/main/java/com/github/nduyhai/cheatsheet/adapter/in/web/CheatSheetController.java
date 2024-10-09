@@ -1,9 +1,12 @@
 package com.github.nduyhai.cheatsheet.adapter.in.web;
 
 import com.github.nduyhai.cheatsheet.application.CheatSheetService;
+import com.github.nduyhai.cheatsheet.domain.Language;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,5 +19,13 @@ public class CheatSheetController {
   @GetMapping
   public ResponseEntity<RestCheatSheets> getAll() {
     return ResponseEntity.ok(RestCheatSheets.from(cheatSheetService.findAll()));
+  }
+
+  @PostMapping("/readme/{language}")
+  public ResponseEntity<Void> generateReadme(@PathVariable String language) {
+
+    this.cheatSheetService.generate(new Language(language));
+
+    return ResponseEntity.ok().build();
   }
 }

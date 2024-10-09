@@ -1,8 +1,7 @@
 package com.github.nduyhai.cheatsheet.application;
 
+import com.github.nduyhai.cheatsheet.application.port.CheatSheetGenerator;
 import com.github.nduyhai.cheatsheet.application.port.CheatSheetRepository;
-import com.github.nduyhai.cheatsheet.domain.Category;
-import com.github.nduyhai.cheatsheet.domain.CheatSheet;
 import com.github.nduyhai.cheatsheet.domain.CheatSheets;
 import com.github.nduyhai.cheatsheet.domain.Language;
 import lombok.RequiredArgsConstructor;
@@ -12,11 +11,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class DefaultCheatSheetService implements CheatSheetService {
   private final CheatSheetRepository cheatSheetRepository;
-
-  @Override
-  public CheatSheet save(CheatSheet cheatSheet) {
-    return this.cheatSheetRepository.save(cheatSheet);
-  }
+  private final CheatSheetGenerator cheatSheetGenerator;
 
   @Override
   public CheatSheets findAll() {
@@ -24,12 +19,10 @@ public class DefaultCheatSheetService implements CheatSheetService {
   }
 
   @Override
-  public CheatSheets findByLanguage(Language language) {
-    return this.cheatSheetRepository.findByLanguage(language);
-  }
+  public void generate(Language language) {
 
-  @Override
-  public CheatSheets findByCategory(Category category) {
-    return this.cheatSheetRepository.findByCategory(category);
+    final CheatSheets cheatSheets = this.cheatSheetRepository.findByLanguage(language);
+
+    this.cheatSheetGenerator.generate(language, cheatSheets);
   }
 }
