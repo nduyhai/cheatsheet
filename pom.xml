@@ -11,7 +11,7 @@
   </parent>
   <groupId>com.github.nduyhai</groupId>
   <artifactId>cheatsheet</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <name>cheatsheet</name>
   <description>cheatsheet</description>
   <url>https://github.com/nduyhai/cheatsheet</url>
@@ -22,9 +22,9 @@
     <developer/>
   </developers>
   <scm>
-    <connection>scm:git:${project.url}</connection>
-    <developerConnection>scm:git:${project.url}</developerConnection>
-    <tag>${project.version}</tag>
+    <connection>scm:git:ssh://git@github.com:nduyhai/cheatsheet.git</connection>
+    <developerConnection>${project.scm.connection}</developerConnection>
+    <tag>cheatsheet-0.0.1</tag>
     <url>scm:git:${project.url}/tree/main</url>
   </scm>
   <properties>
