@@ -22,7 +22,7 @@
   <scm>
     <connection>scm:git:ssh://git@github.com/nduyhai/cheatsheet.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/nduyhai/cheatsheet.git</developerConnection>
-    <tag>cheatsheet-0.0.2</tag>
+    <tag>devel</tag>
     <url>${project.url}</url>
   </scm>
   <properties>
