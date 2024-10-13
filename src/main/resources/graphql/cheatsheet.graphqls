@@ -2,8 +2,10 @@ type Query {
     cheatSheetById(id: ID): CheatSheet
 }
 
+scalar Long
+
 type CheatSheet {
-    id: Int
+    id: Long
     title: String
     description: String
     url: String
@@ -11,11 +13,11 @@ type CheatSheet {
     language: Language
 }
 type Category {
-    id: Int
+    id: Long
     name: String
 }
 
 type Language {
-    id: Int
+    id: Long
     name: String
 }
