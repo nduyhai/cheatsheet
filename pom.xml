@@ -25,7 +25,7 @@
     <connection>scm:git:ssh://git@github.com:nduyhai/cheatsheet.git</connection>
     <developerConnection>${project.scm.connection}</developerConnection>
     <tag>cheatsheet-0.0.1</tag>
-    <url>scm:git:${project.url}/tree/main</url>
+    <url>${project.url}</url>
   </scm>
   <properties>
     <java.version>21</java.version>
