@@ -26,3 +26,16 @@ type Language {
 type Owner {
     name: String
 }
+
+type Mutation {
+    createCheatSheet(req: CreateCheatSheetInput): CheatSheet
+}
+
+
+input CreateCheatSheetInput {
+    title: String
+    description: String
+    url: String
+    categoryId: Long
+    languageId: Long
+}
