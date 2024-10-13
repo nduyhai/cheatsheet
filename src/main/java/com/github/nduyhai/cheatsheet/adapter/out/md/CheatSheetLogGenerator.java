@@ -24,11 +24,11 @@ public class CheatSheetLogGenerator implements CheatSheetGenerator {
   @Override
   public void generate(Language language, CheatSheets cheatSheets) {
     log.info("Generating CheatSheets Log");
-    final Map<String, List<CheatSheet>> categories =
+    final Map<CategoryKey, List<CheatSheet>> categories =
         cheatSheets.cheatSheets().stream()
             .collect(
                 Collectors.groupingBy(
-                    e -> e.getCategory().name(),
+                    e -> new CategoryKey(e.getCategory().name(), e.getCategory().description()),
                     TreeMap::new,
                     Collectors.collectingAndThen(
                         Collectors.toList(),
@@ -43,7 +43,10 @@ public class CheatSheetLogGenerator implements CheatSheetGenerator {
 
     categories.forEach(
         (category, list) -> {
-          sb.append(String.format("## %s", category)).append("\n");
+          sb.append(String.format("## %s", category.getCategory()))
+              .append("\n")
+              .append(category.getDescription())
+              .append("\n");
 
           for (CheatSheet cheatSheet : list) {
             sb.append(

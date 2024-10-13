@@ -1,6 +1,5 @@
 package com.github.nduyhai.cheatsheet.adapter.in.graphql;
 
-import com.github.nduyhai.cheatsheet.adapter.in.web.RestCategory;
 import com.github.nduyhai.cheatsheet.adapter.in.web.RestCheatSheet;
 import com.github.nduyhai.cheatsheet.application.CheatSheetService;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +19,8 @@ public class CheatSheetGraphQL {
         cheatSheetService.findById(id).orElseThrow(IllegalArgumentException::new));
   }
 
-  @SchemaMapping
-  public RestCategory category(RestCheatSheet restCheatSheet) {
-    return RestCategory.builder().build();
+  @SchemaMapping(typeName = "CheatSheet", field = "owner")
+  public Owner owner(RestCheatSheet restCheatSheet) {
+    return new Owner("ndhai");
   }
 }

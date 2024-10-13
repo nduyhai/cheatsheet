@@ -11,8 +11,9 @@ import lombok.Setter;
 public class RestCategory {
   private Long id;
   private String name;
+  private String description;
 
   public static RestCategory from(Category category) {
-    return new RestCategory(category.id(), category.name());
+    return new RestCategory(category.id(), category.name(), category.description());
   }
 }

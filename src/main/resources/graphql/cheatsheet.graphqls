@@ -11,6 +11,7 @@ type CheatSheet {
     url: String
     category: Category
     language: Language
+    owner: Owner
 }
 type Category {
     id: Long
@@ -19,5 +20,9 @@ type Category {
 
 type Language {
     id: Long
+    name: String
+}
+
+type Owner {
     name: String
 }

@@ -25,6 +25,6 @@ public class CategoryEntity implements Serializable {
   private String description;
 
   public Category asCategory() {
-    return new Category(id, name);
+    return new Category(id, name, description);
   }
 }
