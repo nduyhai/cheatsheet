@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.github.nduyhai</groupId>
   <artifactId>cheatsheet</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2-SNAPSHOT</version>
   <name>cheatsheet</name>
   <description>cheatsheet</description>
   <url>https://github.com/nduyhai/cheatsheet</url>
@@ -20,9 +20,9 @@
     <developer />
   </developers>
   <scm>
-    <connection>scm:git:ssh://git@github.com:nduyhai/cheatsheet.git</connection>
-    <developerConnection>${project.scm.connection}</developerConnection>
-    <tag>cheatsheet-0.0.1</tag>
+    <connection>scm:git:ssh://git@github.com/nduyhai/cheatsheet.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/nduyhai/cheatsheet.git</developerConnection>
+    <tag>cheatsheet-0.0.2</tag>
     <url>${project.url}</url>
   </scm>
   <properties>
