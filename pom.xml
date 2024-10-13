@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.github.nduyhai</groupId>
   <artifactId>cheatsheet</artifactId>
-  <version>0.0.2-SNAPSHOT</version>
+  <version>0.0.2</version>
   <name>cheatsheet</name>
   <description>cheatsheet</description>
   <url>https://github.com/nduyhai/cheatsheet</url>
