@@ -1,13 +1,14 @@
 package com.github.nduyhai.cheatsheet.adapter.out.jdbc;
 
-import com.github.nduyhai.cheatsheet.domain.Category;
 import com.github.nduyhai.cheatsheet.domain.CheatSheet;
 import com.github.nduyhai.cheatsheet.domain.CheatSheetId;
-import com.github.nduyhai.cheatsheet.domain.Language;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serial;
 import java.io.Serializable;
 import lombok.Getter;
@@ -26,19 +27,16 @@ public class CheatSheetEntity implements Serializable {
   private String title;
   private String description;
   private String url;
-  private CategoryEntity category;
-  private LanguageEntity language;
 
-  public static CheatSheetEntity from(CheatSheet cheatSheet) {
-    final CheatSheetEntity entity = new CheatSheetEntity();
-    entity.setId(cheatSheet.getId().id());
-    entity.setTitle(cheatSheet.getTitle());
-    entity.setDescription(cheatSheet.getDescription());
-    entity.setUrl(cheatSheet.getUrl());
-    entity.setCategory(CategoryEntity.of(cheatSheet.getCategory().name()));
-    entity.setLanguage(LanguageEntity.of(cheatSheet.getLanguage().name()));
-    return entity;
-  }
+  @NotNull
+  @ManyToOne(cascade = jakarta.persistence.CascadeType.PERSIST, optional = false)
+  @JoinColumn(nullable = false)
+  private CategoryEntity category;
+
+  @NotNull
+  @ManyToOne(cascade = jakarta.persistence.CascadeType.PERSIST, optional = false)
+  @JoinColumn(nullable = false)
+  private LanguageEntity language;
 
   public CheatSheet asCheatSheet() {
     return CheatSheet.builder()
@@ -46,8 +44,8 @@ public class CheatSheetEntity implements Serializable {
         .title(title)
         .description(description)
         .url(url)
-        .category(new Category(category.getCategory()))
-        .language(new Language(language.getLanguage()))
+        .category(category.asCategory())
+        .language(language.asLanguage())
         .build();
   }
 }

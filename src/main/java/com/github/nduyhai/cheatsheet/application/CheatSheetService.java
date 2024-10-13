@@ -1,11 +1,14 @@
 package com.github.nduyhai.cheatsheet.application;
 
+import com.github.nduyhai.cheatsheet.domain.CheatSheet;
 import com.github.nduyhai.cheatsheet.domain.CheatSheets;
-import com.github.nduyhai.cheatsheet.domain.Language;
+import java.util.Optional;
 
 public interface CheatSheetService {
 
   CheatSheets findAll();
 
-  void generate(Language language);
+  Optional<CheatSheet> findById(Long id);
+
+  void generate(String language);
 }

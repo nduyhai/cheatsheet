@@ -1,0 +1,21 @@
+type Query {
+    cheatSheetById(id: ID): CheatSheet
+}
+
+type CheatSheet {
+    id: Int
+    title: String
+    description: String
+    url: String
+    category: Category
+    language: Language
+}
+type Category {
+    id: Int
+    name: String
+}
+
+type Language {
+    id: Int
+    name: String
+}

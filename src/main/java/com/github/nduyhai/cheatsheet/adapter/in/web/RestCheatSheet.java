@@ -13,8 +13,8 @@ public class RestCheatSheet {
   private String title;
   private String description;
   private String url;
-  private String category;
-  private String language;
+  private RestCategory category;
+  private RestLanguage language;
 
   public static RestCheatSheet from(CheatSheet cheatSheet) {
     return new RestCheatSheet.RestCheatSheetBuilder()
@@ -22,8 +22,8 @@ public class RestCheatSheet {
         .title(cheatSheet.getTitle())
         .description(cheatSheet.getDescription())
         .url(cheatSheet.getUrl())
-        .category(cheatSheet.getCategory().name())
-        .language(cheatSheet.getLanguage().name())
+        .category(RestCategory.from(cheatSheet.getCategory()))
+        .language(RestLanguage.from(cheatSheet.getLanguage()))
         .build();
   }
 }

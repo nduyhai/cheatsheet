@@ -1,3 +1,8 @@
+GET localhost:8080/cheatsheets
+Content-Type: application/json
+
+
+###
 POST localhost:8080/cheatsheets/readme/Java
 Content-Type: application/json
 
@@ -5,3 +10,13 @@ Content-Type: application/json
 ###
 POST localhost:8080/cheatsheets/readme/Go
 Content-Type: application/json
+
+
+###
+POST localhost:8080/graphql
+Content-Type: application/json
+
+{
+  "query": "query cheatSheets {\n  cheatSheetById(id: 2) {\n    id\n    title\n    url\n    language {\n  \t\tid\n      name\n    }\n  \n  }\n}",
+  "operationName":"cheatSheets"
+}

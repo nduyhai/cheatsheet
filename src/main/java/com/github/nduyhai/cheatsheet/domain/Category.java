@@ -1,3 +1,3 @@
 package com.github.nduyhai.cheatsheet.domain;
 
-public record Category(String name) {}
+public record Category(Long id, String name) {}

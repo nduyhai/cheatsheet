@@ -1,19 +1,30 @@
 package com.github.nduyhai.cheatsheet.adapter.out.jdbc;
 
-import jakarta.persistence.Embeddable;
+import com.github.nduyhai.cheatsheet.domain.Category;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.io.Serial;
+import java.io.Serializable;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-@Embeddable
-public class CategoryEntity {
+@Entity(name = "category")
+public class CategoryEntity implements Serializable {
+  @Serial private static final long serialVersionUID = 1L;
 
-  private String category;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-  public static CategoryEntity of(String category) {
-    CategoryEntity entity = new CategoryEntity();
-    entity.setCategory(category);
-    return entity;
+  private String name;
+
+  private String description;
+
+  public Category asCategory() {
+    return new Category(id, name);
   }
 }
